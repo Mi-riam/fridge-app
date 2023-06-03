@@ -1,0 +1,30 @@
+<!-- shopping-list.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/_head'); %>
+
+  <body>
+    <%- include('partials/_nav'); %>
+    <main class="container mt-5">
+      <h1 class="mb-4">Shopping List</h1>
+      <% if (shoppingList.length === 0) { %>
+      <div class="alert alert-success" role="alert">
+        Your shopping list is empty.
+      </div>
+      <% } else { %>
+      <ul class="list-group">
+        <% shoppingList.forEach((item) => { %>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <%= item.groceryName %>
+          <span class="badge bg-primary rounded-pill"
+            ><%= item.quantity %></span
+          >
+        </li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>
