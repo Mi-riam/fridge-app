@@ -37,6 +37,7 @@ async function generateShoppingList(req, res) {
         (item) => item.groceryId === groceryId
       );
 
+
       // If the fridge item exists and the amount is less than the wishlist amount,
       // calculate the quantity needed to be added to the shopping list
       if (fridgeItem && fridgeItem.amount < wishlistAmount) {
@@ -46,6 +47,13 @@ async function generateShoppingList(req, res) {
         const shoppingListItem = {
           groceryName: fridgeItem.grocery.name,
           quantity: quantityToAdd,
+        };
+
+        shoppingList.push(shoppingListItem);
+      }else if (!fridgeItem){
+        const shoppingListItem = {
+          groceryName: wishlistItem.grocery.name,
+          quantity: wishlistAmount,
         };
 
         shoppingList.push(shoppingListItem);

@@ -4,7 +4,7 @@ const registerController = require('./controllers/register.controller.js');
 const loginController = require('./controllers/login.controller.js');
 const fridgeController = require('./controllers/fridge.controller.js');
 const wishlistController = require('./controllers/wishlist.controller.js');
-const shoppingListontroller = require('./controllers/shopping-list.controller.js');
+const shoppingListController = require('./controllers/shopping-list.controller.js');
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get('/', homeController.getHomePage);
 
 // Register
 router.get('/register', registerController.getRegisterPage);
-router.post('/register', registerController.regiisterUser);
+router.post('/register', registerController.registerUser);
 
 // Login
 router.get('/login', loginController.getLoginPage);
@@ -32,6 +32,6 @@ router.post('/wishlist', wishlistController.createWishlistItem);
 router.get('/wishlist/delete/:itemId', wishlistController.deleteWishlistItem);
 
 // Shopping List
-router.get('/shopping-list', shoppingListontroller.generateShoppingList);
+router.get('/shopping-list', shoppingListController.generateShoppingList);
 
 module.exports = router;

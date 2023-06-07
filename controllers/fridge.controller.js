@@ -23,6 +23,7 @@ async function getFridgePage(req, res) {
       user: req.session.user,
       fridgeItems: fridgeItems.map((item) => ({
         ...item,
+        id: item.id,
         amount: item.amount,
         expirationInfo: formatExpirationTime(
           item.updatedAt,

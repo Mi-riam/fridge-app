@@ -10,7 +10,7 @@ function getRegisterPage(req, res) {
 }
 
 // POST - Register user
-async function regiisterUser(req, res) {
+async function registerUser(req, res) {
   // const { email, password, name } = req.body;
   const email = req.body.email;
   const password = req.body.password;
@@ -39,5 +39,5 @@ async function regiisterUser(req, res) {
 
 module.exports = {
   getRegisterPage,
-  regiisterUser,
+  registerUser,
 };
